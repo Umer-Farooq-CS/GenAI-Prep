@@ -1,4 +1,4 @@
-# GenAI-Prep
+# Uni-Prep
 
 A centralized, version-controlled notebook for my course notes and practice material. I will keep adding lectures, summaries, and practice questions over time.
 
