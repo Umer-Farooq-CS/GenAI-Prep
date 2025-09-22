@@ -5,10 +5,10 @@
 ## 📝 MULTIPLE CHOICE QUESTIONS
 
 1. Which principle of the CIA triad ensures data is accurate and unaltered?
-   a) Confidentiality
-   b) Availability
-   c) Non-repudiation
-   d) Integrity
+- a) Confidentiality
+- b) Availability
+- c) Non-repudiation
+- d) Integrity
    
    Answer: d) Integrity ✓
 
