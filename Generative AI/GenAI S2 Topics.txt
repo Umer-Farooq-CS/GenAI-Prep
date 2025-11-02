@@ -1,0 +1,2167 @@
+# Generative AI - Hierarchical Study Topics
+
+## Generative AI Fundamentals
+├── Introduction to Generative AI
+│   ├── Definition and Overview
+│   ├── Generative vs Discriminative Models
+│   ├── Applications of Generative AI
+│   │   ├── Text Generation
+│   │   ├── Image Synthesis
+│   │   ├── Video Generation
+│   │   ├── Audio Generation*
+│   │   ├── Code Generation
+│   │   └── Creative Applications
+│   └── Evolution of Generative Models
+│
+├── Deep Generative Models
+│   ├── Model Categories
+│   │   ├── Autoregressive Models
+│   │   ├── Normalizing Flows
+│   │   ├── Variational Autoencoders (VAEs)
+│   │   ├── Generative Adversarial Networks (GANs)
+│   │   ├── Denoising Diffusion Models
+│   │   └── Energy-based Models
+│   └── Generative Learning Trilemma
+│       ├── High Quality Samples
+│       ├── Mode Coverage/Diversity
+│       └── Fast Sampling
+
+## Variational Autoencoders (VAEs)
+├── VAE Architecture
+│   ├── Encoder Network
+│   ├── Latent Space/Latent Vector
+│   ├── Decoder Network
+│   ├── Bottleneck Architecture
+│   └── Reconstruction Process
+├── Training Objectives
+│   ├── Reconstruction Loss
+│   ├── KL Divergence*
+│   ├── ELBO (Evidence Lower Bound)*
+│   └── Loss Function Components
+├── Latent Space Properties
+│   ├── Continuous Representation
+│   ├── Sampling from Latent Space
+│   └── Interpolation in Latent Space
+└── Applications
+    ├── Image Generation
+    ├── Dimensionality Reduction
+    └── Feature Learning
+
+## Generative Adversarial Networks (GANs)
+├── GAN Fundamentals
+│   ├── GAN Architecture
+│   │   ├── Generator Network
+│   │   │   ├── Noise Vector Input (z)
+│   │   │   ├── Random Noise Generation
+│   │   │   ├── Upsampling Layers
+│   │   │   └── Generated Output
+│   │   └── Discriminator Network
+│   │       ├── Classification Task
+│   │       ├── Real vs Fake Detection
+│   │       └── Binary Output
+│   ├── Training Process
+│   │   ├── Adversarial Training
+│   │   ├── Minimax Game
+│   │   ├── Two-Player Game
+│   │   ├── Nash Equilibrium*
+│   │   ├── Alternating Optimization
+│   │   ├── Generator Training Steps
+│   │   └── Discriminator Training Steps
+│   ├── Loss Functions
+│   │   ├── Generator Loss
+│   │   ├── Discriminator Loss
+│   │   ├── Binary Cross-Entropy
+│   │   ├── Value Function
+│   │   └── Objective Function
+│   └── Training Challenges
+│       ├── Mode Collapse
+│       ├── Vanishing Gradients
+│       ├── Training Instability
+│       ├── Oscillation Problems
+│       └── Convergence Issues
+│
+├── Advanced GAN Architectures
+│   ├── Deep Convolutional GAN (DCGAN)
+│   │   ├── Architecture Guidelines
+│   │   ├── Batch Normalization
+│   │   ├── Strided Convolutions
+│   │   ├── Transposed Convolutions
+│   │   ├── Removal of Pooling Layers
+│   │   ├── ReLU Activation (Generator)
+│   │   ├── LeakyReLU Activation (Discriminator)
+│   │   └── Tanh Output Layer
+│   │
+│   ├── Conditional GAN (cGAN)
+│   │   ├── Conditional Information (y)
+│   │   ├── Class Labels as Conditions
+│   │   ├── One-hot Encoding
+│   │   ├── Text Descriptions as Conditions
+│   │   ├── Conditional Generator G(z|y)
+│   │   ├── Conditional Discriminator D(x,y)
+│   │   ├── Conditional Objective Function
+│   │   ├── Controlled Generation
+│   │   ├── Training with Conditions
+│   │   └── Applications
+│   │       ├── Image-to-Image Translation
+│   │       ├── Text-to-Image Generation
+│   │       ├── Video Frame Prediction
+│   │       └── Face Generation with Attributes
+│   │
+│   ├── Pix2Pix (Conditional Adversarial Networks)
+│   │   ├── Paired Image Translation
+│   │   ├── Conditional GAN for Image-to-Image
+│   │   ├── U-Net Generator Architecture
+│   │   │   ├── Encoder-Decoder Structure
+│   │   │   ├── Skip Connections
+│   │   │   ├── Symmetric Architecture
+│   │   │   └── Information Preservation
+│   │   ├── PatchGAN Discriminator
+│   │   │   ├── Markovian Discriminator
+│   │   │   ├── N×N Patch Classification
+│   │   │   ├── Local Structure Modeling
+│   │   │   ├── Texture/Style Loss
+│   │   │   └── Receptive Field Variations
+│   │   │       ├── 1×1 PixelGAN
+│   │   │       ├── 16×16 PatchGAN
+│   │   │       ├── 70×70 PatchGAN
+│   │   │       └── 286×286 ImageGAN
+│   │   ├── Loss Functions
+│   │   │   ├── cGAN Loss
+│   │   │   ├── L1 Loss
+│   │   │   ├── L2 Loss*
+│   │   │   ├── Combined Loss (L1+cGAN)
+│   │   │   └── Loss Weight (λ)
+│   │   ├── Training Details
+│   │   │   ├── Random Jitter
+│   │   │   ├── Mirroring/Flipping
+│   │   │   ├── Batch Size
+│   │   │   ├── Learning Rate
+│   │   │   ├── Adam Optimizer
+│   │   │   └── Gradient Descent
+│   │   ├── Applications
+│   │   │   ├── Semantic Labels → Photo
+│   │   │   ├── Architectural Labels → Photo (CMP Facades)
+│   │   │   ├── Map ↔ Aerial Photo
+│   │   │   ├── BW → Color Photos (Colorization)
+│   │   │   ├── Edges → Photo
+│   │   │   ├── Sketch → Photo
+│   │   │   ├── Day → Night
+│   │   │   ├── Thermal → Color Photos
+│   │   │   └── Photo Inpainting
+│   │   └── Evaluation
+│   │       ├── FCN-Score
+│   │       ├── Per-pixel Accuracy
+│   │       ├── Per-class Accuracy
+│   │       ├── Class IOU
+│   │       ├── Amazon Mechanical Turk (AMT) Tests
+│   │       └── Perceptual Studies
+│   │
+│   ├── CycleGAN
+│   │   ├── Unpaired Image Translation
+│   │   ├── Two Domains (X and Y)
+│   │   ├── Dual Generator Architecture
+│   │   │   ├── Generator G: X → Y
+│   │   │   ├── Generator F: Y → X
+│   │   │   └── Generator Components
+│   │   │       ├── Encoder (Convolutional Block)
+│   │   │       ├── Transformer (Residual Block)
+│   │   │       │   ├── 6-9 Residual Blocks
+│   │   │       │   ├── 2D Convolutional Layers
+│   │   │       │   ├── Batch Normalization
+│   │   │       │   └── ReLU Activation
+│   │   │       └── Decoder (Transposed Convolutional Block)
+│   │   │           ├── Upsampling Blocks
+│   │   │           ├── Transposed Convolution
+│   │   │           ├── ReLU Activation
+│   │   │           └── Tanh Output Layer
+│   │   ├── Dual Discriminator Architecture
+│   │   │   ├── Discriminator Dₓ
+│   │   │   └── Discriminator Dᵧ
+│   │   ├── Loss Functions
+│   │   │   ├── Adversarial Losses
+│   │   │   │   ├── GAN Loss for G
+│   │   │   │   └── GAN Loss for F
+│   │   │   ├── Cycle Consistency Losses
+│   │   │   │   ├── Forward Cycle Consistency
+│   │   │   │   ├── Backward Cycle Consistency
+│   │   │   │   └── L1 Reconstruction Loss
+│   │   │   └── Full Objective Function (λ parameter)
+│   │   ├── Cycle Consistency Concept
+│   │   │   ├── Transitivity in Training
+│   │   │   ├── Round-trip Translation
+│   │   │   └── Identity Preservation
+│   │   ├── Training Details
+│   │   │   ├── Instance Normalization
+│   │   │   ├── Random Jitter
+│   │   │   ├── Mirroring
+│   │   │   └── Batch Size Settings
+│   │   └── Applications
+│   │       ├── Horse ↔ Zebra
+│   │       ├── Photo ↔ Painting Style Transfer
+│   │       ├── Season Transfer
+│   │       └── Domain Adaptation*
+│   │
+│   ├── StyleGAN
+│   │   ├── Style-Based Generator Architecture
+│   │   ├── Architectural Components
+│   │   │   ├── Mapping Network
+│   │   │   │   ├── 8 Fully Connected Layers
+│   │   │   │   ├── Latent Space Z → W Transformation
+│   │   │   │   ├── Intermediate Latent Space (W)
+│   │   │   │   ├── Disentanglement
+│   │   │   │   └── Feature Control
+│   │   │   ├── Synthesis Network
+│   │   │   │   ├── 18 Layers Deep
+│   │   │   │   ├── Constant Input (4×4×512)
+│   │   │   │   ├── Learned Constant Tensor
+│   │   │   │   ├── Progressive Synthesis
+│   │   │   │   └── Resolution Progression (4² → 1024²)
+│   │   │   ├── Adaptive Instance Normalization (AdaIN)
+│   │   │   │   ├── Style-Specific Control
+│   │   │   │   ├── Per-Layer Application
+│   │   │   │   ├── Channel-wise Normalization
+│   │   │   │   ├── Feature Map Normalization
+│   │   │   │   ├── Scaling and Biasing
+│   │   │   │   ├── Affine Transformations (A)
+│   │   │   │   └── Style Injection
+│   │   │   └── Noise Inputs
+│   │   │       ├── Gaussian Noise
+│   │   │       ├── Per-Layer Noise
+│   │   │       ├── Dedicated Noise per Layer
+│   │   │       ├── Stochastic Variation Generation
+│   │   │       ├── Per-Channel Scaling Factors
+│   │   │       ├── Fine-Grained Details
+│   │   │       └── Localized Control
+│   │   ├── Key Innovations
+│   │   │   ├── Separation of High-Level Attributes
+│   │   │   │   ├── Pose
+│   │   │   │   ├── Shape
+│   │   │   │   └── Identity
+│   │   │   ├── Stochastic Variation
+│   │   │   │   ├── Freckles
+│   │   │   │   ├── Hair Details
+│   │   │   │   ├── Eye Color
+│   │   │   │   └── Skin Pores
+│   │   │   ├── Style Transfer Inspiration
+│   │   │   ├── Unsupervised Separation
+│   │   │   ├── Intuitive Scale-Specific Control
+│   │   │   └── Global vs Local Effects
+│   │   ├── Style Mixing
+│   │   │   ├── Mixing Regularization
+│   │   │   ├── Two Latent Codes (z₁, z₂)
+│   │   │   ├── Crossover Point
+│   │   │   ├── Style Combinations
+│   │   │   ├── Coarse Styles (4² – 8²)
+│   │   │   │   ├── Pose
+│   │   │   │   ├── Hair Style
+│   │   │   │   ├── Face Shape
+│   │   │   │   └── Eyeglasses
+│   │   │   ├── Middle Styles (16² – 32²)
+│   │   │   │   ├── Facial Features
+│   │   │   │   ├── Hair Style Details
+│   │   │   │   └── Eyes Open/Closed
+│   │   │   └── Fine Styles (64² – 1024²)
+│   │   │       ├── Color Scheme
+│   │   │       ├── Microstructure
+│   │   │       └── Texture
+│   │   ├── Latent Space Properties
+│   │   │   ├── Entangled vs Disentangled
+│   │   │   ├── Linear Subspaces
+│   │   │   ├── Factor of Variation Control
+│   │   │   ├── W Space vs Z Space
+│   │   │   ├── Perceptual Path Length
+│   │   │   ├── Linear Separability
+│   │   │   └── Independent Attribute Control
+│   │   ├── Evaluation Metrics
+│   │   │   ├── Fréchet Inception Distance (FID)
+│   │   │   ├── Perceptual Path Length
+│   │   │   │   ├── Full-Path Length
+│   │   │   │   ├── End-Path Length
+│   │   │   │   └── Spherical Interpolation (slerp)
+│   │   │   ├── Linear Separability Score
+│   │   │   │   ├── Binary Attribute Classification
+│   │   │   │   ├── SVM Classification
+│   │   │   │   ├── Conditional Entropy H(Y|X)
+│   │   │   │   └── 40 CelebA Attributes
+│   │   │   └── Inception Score*
+│   │   ├── Training Details
+│   │   │   ├── Bilinear Up/Downsampling
+│   │   │   ├── WGAN-GP Loss*
+│   │   │   ├── Non-saturating Loss
+│   │   │   ├── R₁ Regularization
+│   │   │   ├── Progressive Growing
+│   │   │   ├── Equalized Learning Rate
+│   │   │   └── FP32 Precision*
+│   │   ├── Datasets
+│   │   │   ├── CelebA-HQ
+│   │   │   ├── FFHQ (Flickr-Faces-HQ)
+│   │   │   │   ├── 70,000 Images
+│   │   │   │   ├── 1024² Resolution
+│   │   │   │   ├── Age Diversity
+│   │   │   │   ├── Ethnicity Diversity
+│   │   │   │   └── Accessory Coverage
+│   │   │   ├── LSUN Bedroom
+│   │   │   ├── LSUN Cars
+│   │   │   └── LSUN Cats
+│   │   └── Applications
+│   │       ├── High-Quality Face Generation
+│   │       ├── Style Transfer
+│   │       ├── Image Editing
+│   │       ├── Attribute Manipulation
+│   │       └── Truncation Trick
+│   │           ├── ψ Parameter
+│   │           ├── Selective Application
+│   │           └── Quality-Diversity Trade-off
+│   │
+│   ├── Wasserstein GAN (WGAN)*
+│   ├── Progressive GAN*
+│   ├── BigGAN*
+│   └── Super-Resolution GAN (SRGAN)*
+│
+└── GAN Evaluation
+    ├── Qualitative Evaluation
+    │   ├── Visual Inspection
+    │   └── Human Evaluation
+    ├── Quantitative Metrics
+    │   ├── Inception Score (IS)
+    │   ├── Fréchet Inception Distance (FID)
+    │   ├── Precision and Recall*
+    │   └── Perceptual Path Length
+    └── Application-Specific Metrics
+
+## Diffusion Models
+├── Diffusion Model Fundamentals
+│   ├── Denoising Diffusion Probabilistic Models (DDPM)
+│   ├── Score-Based Generative Models
+│   ├── Non-equilibrium Thermodynamics Inspiration
+│   └── Markov Chain Process
+│
+├── Forward Diffusion Process
+│   ├── Noise Addition Process
+│   ├── Gaussian Noise
+│   ├── Diffusion Steps (T steps)
+│   ├── Markov Property
+│   ├── Diffusion Kernel
+│   │   ├── Mathematical Formulation
+│   │   ├── Mean and Variance Parameters (βₜ)
+│   │   ├── Noise Schedule
+│   │   │   ├── Linear Schedule
+│   │   │   ├── Cosine Schedule*
+│   │   │   └── Learned Schedule*
+│   │   ├── Cumulative Product (ᾱₜ)
+│   │   └── Signal-to-Noise Ratio (SNR)*
+│   ├── Data to Noise Transformation
+│   ├── Fixed Process
+│   └── q(xₜ|xₜ₋₁) Distribution
+│
+├── Reverse Denoising Process
+│   ├── Generative Process
+│   ├── Noise to Data Transformation
+│   ├── Learnable/Trainable Process
+│   ├── Neural Network Implementation
+│   │   ├── U-Net Architecture
+│   │   │   ├── ResNet Blocks
+│   │   │   ├── Self-Attention Layers
+│   │   │   ├── Down-sampling Path
+│   │   │   ├── Up-sampling Path
+│   │   │   └── Skip Connections
+│   │   ├── Denoising Autoencoder
+│   │   └── Time Embedding
+│   │       ├── Sinusoidal Positional Embeddings
+│   │       ├── Random Fourier Features
+│   │       ├── Fully-Connected Layers
+│   │       └── Adaptive Group Normalization
+│   ├── pθ(xₜ₋₁|xₜ) Distribution
+│   ├── Noise Prediction Network (εθ)
+│   └── Iterative Denoising
+│
+├── Training Process
+│   ├── Loss Functions
+│   │   ├── Mean Squared Error (MSE) Loss
+│   │   ├── Variational Lower Bound*
+│   │   ├── KL Divergence
+│   │   ├── Simplified Objective
+│   │   ├── Noise Prediction Loss
+│   │   └── Training Objective Weighting
+│   │       ├── Time-Dependent Weights
+│   │       ├── Perceptual Quality vs Likelihood
+│   │       └── Content-Detail Trade-off
+│   ├── Training Algorithm
+│   │   ├── Random Timestep Sampling
+│   │   ├── Noise Addition
+│   │   ├── Noise Prediction
+│   │   ├── Loss Computation
+│   │   └── Backpropagation
+│   ├── Tractable Posterior Distribution
+│   ├── Parameterization Strategies
+│   │   ├── Mean Parameterization
+│   │   ├── Noise Parameterization
+│   │   └── Score Parameterization*
+│   └── Training Stability
+│       ├── No Loss Spikes
+│       ├── No Rollbacks
+│       └── Robust Convergence
+│
+├── Sampling/Generation Process
+│   ├── Starting from Noise (xₜ ~ N(0,I))
+│   ├── Iterative Denoising Steps
+│   ├── Reverse Process Execution
+│   ├── Sequential Generation
+│   └── Sampling Speed Issues
+│       ├── 1000s of Network Evaluations
+│       ├── Slow Generation
+│       └── DDIM (Denoising Diffusion Implicit Models)*
+│
+├── Diffusion Model Applications
+│   ├── Image Generation
+│   │   ├── Unconditional Generation
+│   │   └── Conditional Generation
+│   ├── Image Super-Resolution (SR3)
+│   │   ├── Iterative Refinement
+│   │   └── Resolution Enhancement
+│   ├── Image-to-Image Translation (Palette)
+│   │   ├── Colorization
+│   │   ├── Inpainting
+│   │   ├── Uncropping
+│   │   └── JPEG Restoration
+│   ├── Text-to-Image Generation
+│   │   ├── DALL·E 2
+│   │   ├── Imagen
+│   │   ├── GLIDE
+│   │   └── Stable Diffusion
+│   ├── Image Editing (SDEdit)
+│   │   ├── Guided Synthesis
+│   │   ├── Stochastic Differential Equations
+│   │   └── Distribution Alignment
+│   ├── Video Generation
+│   │   ├── Long-term Video Generation
+│   │   ├── Hierarchical Generation
+│   │   ├── Frame Interpolation
+│   │   ├── Video Prediction
+│   │   └── MCVD*
+│   ├── 3D Shape Generation
+│   │   ├── Point-Voxel Diffusion
+│   │   ├── Shape Completion
+│   │   └── Multimodal Generation
+│   ├── Semantic Segmentation
+│   │   ├── Label-Efficient Learning
+│   │   └── Representation Learning
+│   ├── Conditional Generation (ILVR)
+│   │   ├── Iterative Latent Variable Refinement
+│   │   └── Conditioning Methods
+│   └── Audio Generation*
+│
+└── Advanced Diffusion Concepts
+    ├── Classifier Guidance*
+    ├── Classifier-Free Guidance
+    ├── Cascaded Diffusion Models
+    ├── Latent Diffusion Models (LDM)
+    └── Connection to Other Models
+        ├── Connection to VAEs
+        │   ├── Hierarchical VAE Structure
+        │   ├── Fixed Encoder
+        │   ├── Same Dimensional Latents
+        │   ├── Shared Denoising Model
+        │   └── Reweighted Variational Bound
+        ├── Comparison with GANs
+        │   ├── Mode Coverage
+        │   ├── Sample Quality
+        │   └── Training Stability
+        └── Score-Based Models*
+
+## Stable Diffusion (Latent Diffusion Models)
+├── Latent Diffusion Model (LDM) Concept
+│   ├── Motivation
+│   │   ├── Computational Efficiency
+│   │   ├── Memory Reduction
+│   │   ├── Training Cost Reduction
+│   │   └── High-Resolution Image Synthesis
+│   ├── Latent Space Operations
+│   │   ├── Compressed Representation
+│   │   ├── Lower Dimensional Space
+│   │   ├── Diffusion in Latent Space (not Pixel Space)
+│   │   └── Perceptual Compression
+│   └── Architecture Philosophy
+│       ├── Perceptual Equivalence
+│       ├── Semantic Compression
+│       └── Efficient Processing
+│
+├── Stable Diffusion Architecture
+│   ├── Three Main Components
+│   │   ├── Variational Autoencoder (VAE)
+│   │   │   ├── Encoder
+│   │   │   │   ├── Input: RGB Image (3, 512, 512)
+│   │   │   │   ├── Downsampling
+│   │   │   │   ├── Convolutional Layers
+│   │   │   │   └── Output: Latent Representation z₀ (4, 64, 64)
+│   │   │   ├── Decoder
+│   │   │   │   ├── Input: Processed Latent (4, 64, 64)
+│   │   │   │   ├── Upsampling
+│   │   │   │   ├── Transposed Convolutions
+│   │   │   │   └── Output: Generated Image (3, 512, 512)
+│   │   │   └── Pretrained VAE
+│   │   │       ├── Fixed During Diffusion Training
+│   │   │       └── Perceptual Loss Training*
+│   │   │
+│   │   ├── U-Net + Scheduler
+│   │   │   ├── Modified U-Net Architecture
+│   │   │   │   ├── ResNet Blocks
+│   │   │   │   ├── Self-Attention Layers
+│   │   │   │   ├── Cross-Attention Layers
+│   │   │   │   │   ├── Text-Image Attention
+│   │   │   │   │   ├── Merging Text with Latents
+│   │   │   │   │   └── Conditioning Mechanism
+│   │   │   │   ├── Additional Conditioning Layers
+│   │   │   │   └── Temporal/Spatial Processing
+│   │   │   ├── Input Processing
+│   │   │   │   ├── Text Embeddings (77, 768)
+│   │   │   │   ├── Noisy Latent (4, 64, 64)
+│   │   │   │   └── Timestep Encoding
+│   │   │   ├── Noise Prediction
+│   │   │   │   ├── Conditional Noise Prediction
+│   │   │   │   └── Text-Guided Denoising
+│   │   │   └── Scheduler
+│   │   │       ├── DDPM Scheduler
+│   │   │       ├── DDIM Scheduler*
+│   │   │       ├── PNDM Scheduler*
+│   │   │       └── Noise Schedule Management
+│   │   │
+│   │   └── Text Encoder (CLIP)
+│   │       ├── CLIP Architecture
+│   │       │   ├── Contrastive Language-Image Pre-training
+│   │       │   ├── Natural Language Supervision
+│   │       │   ├── 400 Million (Image, Text) Pairs
+│   │       │   ├── Large-Scale Training
+│   │       │   └── Multimodal Learning
+│   │       ├── Text Processing
+│   │       │   ├── Input: Text Prompt
+│   │       │   ├── Tokenization
+│   │       │   ├── Transformer Language Model
+│   │       │   │   ├── ClipText (GPT-based)
+│   │       │   │   ├── BERT Alternative*
+│   │       │   │   ├── OpenCLIP Variants
+│   │       │   │   └── Self-Attention Mechanism
+│   │       │   └── Output: Token Embeddings (77, 768)
+│   │       └── CLIP Capabilities
+│   │           ├── Text-Image Relationship Learning
+│   │           ├── Zero-Shot Classification
+│   │           ├── OCR
+│   │           ├── Geo-localization
+│   │           └── Action Recognition
+│   │
+│   └── Information Flow
+│       ├── Text → CLIP → Embeddings
+│       ├── Image → VAE Encoder → Latent
+│       ├── Latent + Noise → U-Net → Denoised Latent
+│       ├── Denoised Latent → VAE Decoder → Image
+│       └── Iterative Refinement
+│
+├── Training Process
+│   ├── Forward Process (Noising)
+│   │   ├── Image → VAE Encoder → Latent z₀
+│   │   ├── Progressive Noise Addition to Latent
+│   │   ├── Timestep Sampling
+│   │   └── Noisy Latent Generation zₜ
+│   ├── Text Conditioning
+│   │   ├── Text Prompt Processing
+│   │   ├── CLIP Encoding
+│   │   └── Cross-Attention Integration
+│   ├── Reverse Process (Denoising)
+│   │   ├── U-Net Noise Prediction
+│   │   ├── Text-Conditioned Denoising
+│   │   └── Latent Space Denoising
+│   ├── Loss Function
+│   │   ├── Noise Prediction Loss
+│   │   ├── MSE in Latent Space
+│   │   └── Conditioning Loss*
+│   └── Training Details
+│       ├── LAION-5B Dataset Subset
+│       ├── 512×512 Training Resolution
+│       ├── Computational Efficiency
+│       └── Training Stability
+│
+├── Inference/Generation Process
+│   ├── Text-to-Image Pipeline
+│   │   ├── Input: Text Prompt
+│   │   ├── CLIP Text Encoding
+│   │   ├── Random Latent Noise Initialization
+│   │   ├── Iterative Denoising (T steps)
+│   │   │   ├── U-Net Prediction
+│   │   │   ├── Noise Removal
+│   │   │   └── Text Guidance
+│   │   ├── Final Denoised Latent
+│   │   └── VAE Decoder → Output Image
+│   ├── Conditioning Methods
+│   │   ├── Text Conditioning
+│   │   ├── Image Conditioning
+│   │   ├── Sketch Conditioning*
+│   │   └── Multi-modal Conditioning*
+│   └── Generation Parameters
+│       ├── Number of Inference Steps
+│       ├── Guidance Scale
+│       ├── Negative Prompts*
+│       └── Seed Control
+│
+├── Key Advantages
+│   ├── Computational Efficiency
+│   │   ├── Reduced Memory Usage
+│   │   ├── Faster Training
+│   │   └── Faster Inference
+│   ├── High-Resolution Generation
+│   │   ├── 512×512 Default
+│   │   ├── 1024×1024 Capability
+│   │   └── Upscaling Support*
+│   ├── Flexibility
+│   │   ├── Text-to-Image
+│   │   ├── Image-to-Image*
+│   │   ├── Inpainting*
+│   │   └── Outpainting*
+│   └── Open-Source Availability
+│       ├── Model Weights
+│       ├── Training Code
+│       └── Community Development
+│
+└── Applications and Extensions
+    ├── Text-to-Image Generation
+    ├── Image Inpainting*
+    ├── Image Outpainting*
+    ├── Image-to-Image Translation*
+    ├── Style Transfer*
+    ├── ControlNet*
+    ├── DreamBooth*
+    ├── LoRA (Low-Rank Adaptation)*
+    └── Textual Inversion*
+
+## Transformer Architecture
+├── Transformer Fundamentals
+│   ├── Architecture Overview
+│   │   ├── Encoder-Decoder Structure
+│   │   ├── Attention is All You Need (2017)
+│   │   ├── No Recurrence
+│   │   ├── No Convolutions
+│   │   ├── Parallelization Benefits
+│   │   └── Sequence-to-Sequence (Seq2Seq) Tasks
+│   ├── Key Components
+│   │   ├── Self-Attention Mechanism
+│   │   ├── Multi-Head Attention
+│   │   ├── Position-wise Feed-Forward Networks
+│   │   ├── Positional Encoding
+│   │   ├── Layer Normalization
+│   │   └── Residual Connections
+│   └── Advantages
+│       ├── Long-Range Dependencies
+│       ├── Parallel Processing
+│       ├── Reduced Training Time
+│       ├── Better Performance
+│       └── Scalability
+│
+├── Input Representation
+│   ├── Tokenization
+│   │   ├── Word-level Tokenization
+│   │   ├── Subword Tokenization
+│   │   │   ├── Byte-Pair Encoding (BPE)
+│   │   │   ├── WordPiece
+│   │   │   ├── SentencePiece
+│   │   │   └── Unigram Language Model*
+│   │   ├── Character-level Tokenization*
+│   │   └── Vocabulary Creation
+│   ├── Token Embeddings
+│   │   ├── Input Embedding Layer
+│   │   ├── Learned Embeddings
+│   │   ├── Dense Vector Representations
+│   │   ├── Fixed-Length Vectors
+│   │   ├── Embedding Dimension (dₘₒdₑₗ)
+│   │   ├── Semantic Meaning Capture
+│   │   └── Continuous-Valued Vectors
+│   └── Positional Encoding
+│       ├── Position Information
+│       ├── Sequential Order Encoding
+│       ├── Sinusoidal Positional Encoding
+│       │   ├── Sine Function (Even Positions)
+│       │   ├── Cosine Function (Odd Positions)
+│       │   ├── Different Frequencies
+│       │   ├── PE(pos, 2i) = sin(pos/10000^(2i/dₘₒdₑₗ))
+│       │   └── PE(pos, 2i+1) = cos(pos/10000^(2i/dₘₒdₑₗ))
+│       ├── Learned Positional Embeddings*
+│       ├── Relative Positional Encoding*
+│       ├── Addition to Token Embeddings
+│       └── Same Dimension as Embeddings
+│
+├── Attention Mechanism
+│   ├── Attention Fundamentals
+│   │   ├── Global/Soft Attention
+│   │   ├── Relevance Weighting
+│   │   ├── Context-Dependent Focus
+│   │   ├── Importance Scoring
+│   │   └── Weighted Sum Computation
+│   ├── Self-Attention
+│   │   ├── Scaled Dot-Product Attention
+│   │   ├── Query (Q), Key (K), Value (V)
+│   │   │   ├── Query Matrix Q
+│   │   │   ├── Key Matrix K
+│   │   │   ├── Value Matrix V
+│   │   │   ├── Weight Matrices (Wq, Wk, Wv)
+│   │   │   ├── Linear Projections
+│   │   │   └── Learned Transformations
+│   │   ├── Attention Computation
+│   │   │   ├── QK^T (Dot Product)
+│   │   │   ├── Scaling by √dₖ
+│   │   │   ├── Softmax Normalization
+│   │   │   ├── Attention Weights/Scores
+│   │   │   ├── Weighted Values
+│   │   │   └── Attention(Q,K,V) = softmax(QK^T/√dₖ)V
+│   │   ├── Token-to-Token Relationships
+│   │   ├── Same Sequence Attention
+│   │   ├── Parallel Computation
+│   │   └── Example: "it" referring to "animal"
+│   └── Cross-Attention
+│       ├── Different Sequence Attention
+│       ├── Encoder-Decoder Attention
+│       ├── K and V from Encoder
+│       ├── Q from Decoder
+│       └── Information Integration
+│
+├── Multi-Head Attention (MHA)
+│   ├── Concept
+│   │   ├── Multiple Parallel Attention
+│   │   ├── Different Representation Subspaces
+│   │   ├── Diverse Aspects Capture
+│   │   ├── Multiple Attention "Heads"
+│   │   └── Enhanced Dependency Capture
+│   ├── Architecture
+│   │   ├── Number of Heads (h)
+│   │   ├── Head Dimension (dₖ = dᵥ = dₘₒdₑₗ/h)
+│   │   ├── Linear Projections per Head
+│   │   │   ├── Separate Weight Matrices
+│   │   │   ├── WqⁱM, Wkⁱ, Wvⁱ for each head i
+│   │   │   └── Independent Projections
+│   │   ├── Parallel Attention Computation
+│   │   ├── Concatenation of Heads
+│   │   └── Output Projection (Wₒ)
+│   ├── Computation Steps
+│   │   ├── Linear Projection (h times)
+│   │   ├── Scaled Dot-Product Attention (h times)
+│   │   ├── Concatenate Outputs
+│   │   └── Final Linear Projection
+│   └── Benefits
+│       ├── Multiple Representation Subspaces
+│       ├── Focus on Different Parts
+│       ├── Richer Representations
+│       └── Complex Dependency Modeling
+│
+├── Position-wise Feed-Forward Network (FFN)
+│   ├── Architecture
+│   │   ├── Two Linear Transformations
+│   │   ├── ReLU Activation (Middle Layer)
+│   │   ├── FFN(x) = max(0, xW₁ + b₁)W₂ + b₂
+│   │   ├── Hidden Layer Dimension (typically 4×dₘₒdₑₗ)
+│   │   └── Applied Independently to Each Position
+│   ├── Properties
+│   │   ├── Non-Linear Transformations
+│   │   ├── Position-wise Application
+│   │   ├── Same Across Positions
+│   │   └── Different Across Layers
+│   └── Purpose
+│       ├── Complex Pattern Capture
+│       ├── Feature Transformation
+│       └── Representation Enhancement
+│
+├── Encoder Architecture
+│   ├── Structure
+│   │   ├── Stack of N Layers (N=6 typically)
+│   │   ├── Identical Layer Structure
+│   │   └── Progressive Processing
+│   ├── Single Encoder Layer
+│   │   ├── Multi-Head Self-Attention
+│   │   ├── Add & Normalize (Residual + LayerNorm)
+│   │   ├── Position-wise FFN
+│   │   └── Add & Normalize (Residual + LayerNorm)
+│   ├── Layer Normalization (LayerNorm)
+│   │   ├── Normalization Across Features
+│   │   ├── Per-Token Normalization
+│   │   ├── Training Stabilization
+│   │   ├── Mean and Variance Computation
+│   │   └── Activation Scaling
+│   ├── Residual Connections (Skip Connections)
+│   │   ├── Output = LayerNorm(x + Sublayer(x))
+│   │   ├── Gradient Flow
+│   │   ├── Vanishing Gradient Mitigation
+│   │   ├── Deep Network Training
+│   │   └── Identity Mapping
+│   ├── Output Dimension
+│   │   ├── dₘₒdₑₗ = 512 (standard)
+│   │   └── Consistent Throughout Layers
+│   └── No Masking in Encoder
+│
+├── Decoder Architecture
+│   ├── Structure
+│   │   ├── Stack of N Layers (N=6 typically)
+│   │   ├── Identical Layer Structure
+│   │   └── Progressive Generation
+│   ├── Single Decoder Layer
+│   │   ├── Masked Multi-Head Self-Attention
+│   │   ├── Add & Normalize
+│   │   ├── Multi-Head Cross-Attention (Encoder-Decoder)
+│   │   ├── Add & Normalize
+│   │   ├── Position-wise FFN
+│   │   └── Add & Normalize
+│   ├── Masked Self-Attention
+│   │   ├── Autoregressive Generation
+│   │   ├── Look-Ahead Masking
+│   │   ├── Future Position Masking
+│   │   ├── Causal Masking
+│   │   ├── Position i depends only on positions < i
+│   │   └── Sequential Dependencies
+│   ├── Encoder-Decoder Attention
+│   │   ├── Q from Decoder
+│   │   ├── K, V from Encoder Output
+│   │   ├── Source-Target Attention
+│   │   └── Information Integration
+│   └── Output Embeddings
+│       ├── Shifted Right by One Position
+│       ├── Start Token
+│       └── Previous Token Feeding
+│
+├── Output Layer
+│   ├── Linear Transformation
+│   │   ├── dₘₒdₑₗ → Vocabulary Size
+│   │   └── Logit Generation
+│   ├── Softmax Layer
+│   │   ├── Probability Distribution
+│   │   └── Next Token Prediction
+│   └── Output Generation
+│       ├── Greedy Decoding*
+│       ├── Beam Search*
+│       ├── Top-k Sampling*
+│       └── Nucleus (Top-p) Sampling*
+│
+├── Training Details
+│   ├── Loss Function
+│   │   ├── Cross-Entropy Loss
+│   │   ├── Sequence-Level Loss
+│   │   └── Teacher Forcing*
+│   ├── Optimization
+│   │   ├── Adam Optimizer
+│   │   ├── Learning Rate Scheduling
+│   │   │   ├── Warmup Steps
+│   │   │   ├── Linear Warmup
+│   │   │   └── Inverse Square Root Decay
+│   │   ├── Gradient Clipping*
+│   │   └── Weight Decay*
+│   ├── Regularization
+│   │   ├── Dropout
+│   │   │   ├── Attention Dropout
+│   │   │   ├── Residual Dropout
+│   │   │   └── Embedding Dropout
+│   │   └── Label Smoothing*
+│   └── Batch Processing
+│       ├── Mini-batch Training
+│       ├── Dynamic Padding*
+│       └── Batch Size Selection
+│
+└── Applications
+    ├── Machine Translation
+    ├── Text Summarization
+    ├── Question Answering
+    ├── Text Generation
+    ├── Named Entity Recognition (NER)*
+    ├── Sentiment Analysis*
+    └── Language Understanding Tasks
+
+## Vision Transformers (ViT)
+├── Vision Transformer Fundamentals
+│   ├── Motivation
+│   │   ├── Transformers for Computer Vision
+│   │   ├── Limited Transformer Use in Vision
+│   │   ├── Alternative to CNNs
+│   │   ├── Pure Transformer Architecture
+│   │   └── Attention for Images
+│   ├── Key Innovation
+│   │   ├── Image Patches as Tokens
+│   │   ├── Direct Transformer Application
+│   │   └── Minimal Inductive Bias
+│   └── Performance
+│       ├── State-of-the-Art Results
+│       ├── Comparable to CNNs
+│       └── Fewer Computational Resources
+│
+├── ViT Architecture
+│   ├── Image Preprocessing
+│   │   ├── Image Patching
+│   │   │   ├── Split Image into Fixed-Size Patches
+│   │   │   ├── Patch Size (P×P, typically 16×16)
+│   │   │   ├── Number of Patches (N = HW/P²)
+│   │   │   ├── Image Height (H)
+│   │   │   ├── Image Width (W)
+│   │   │   └── Non-Overlapping Patches
+│   │   ├── Patch Flattening
+│   │   │   ├── 2D Patch → 1D Vector
+│   │   │   ├── Pixel Values to Sequence
+│   │   │   └── Sequential Data Treatment
+│   │   └── AN IMAGE IS WORTH 16X16 WORDS
+│   │
+│   ├── Patch Embeddings
+│   │   ├── Linear Projection
+│   │   │   ├── Flattened Patches → Embeddings
+│   │   │   ├── Lower-Dimensional Space
+│   │   │   ├── Embedding Dimension (D)
+│   │   │   ├── Trainable Linear Layer
+│   │   │   └── Feature Preservation
+│   │   ├── Positional Encodings
+│   │   │   ├── Position Information Addition
+│   │   │   ├── Learnable Position Embeddings
+│   │   │   ├── 1D Positional Encoding
+│   │   │   ├── 2D Positional Encoding*
+│   │   │   └── Relative Position Information
+│   │   └── Classification Token ([CLS])
+│   │       ├── Special Token Prepended
+│   │       ├── Learnable Embedding
+│   │       ├── Image Representation
+│   │       ├── Output State for Classification
+│   │       └── Analogous to BERT [CLS]
+│   │
+│   ├── Transformer Encoder
+│   │   ├── Encoder-Only Architecture
+│   │   ├── Stack of Transformer Blocks
+│   │   ├── Standard Transformer Encoder
+│   │   ├── Layer Normalization (LN)
+│   │   │   ├── Pre-Norm Architecture
+│   │   │   ├── Stability Improvement
+│   │   │   └── Convergence Enhancement
+│   │   ├── Multi-Head Self-Attention (MSA)
+│   │   │   ├── Patch-to-Patch Attention
+│   │   │   ├── Global Receptive Field
+│   │   │   ├── Spatial Relationships
+│   │   │   └── Long-Range Dependencies
+│   │   ├── Multi-Layer Perceptron (MLP)
+│   │   │   ├── Two-Layer FFN
+│   │   │   ├── GELU Activation
+│   │   │   │   ├── Gaussian Error Linear Unit
+│   │   │   │   ├── GELU(x) ≈ x·Φ(x)
+│   │   │   │   └── Smooth Activation Function
+│   │   │   ├── Hidden Layer Expansion
+│   │   │   └── Non-Linear Transformation
+│   │   ├── Residual Connections
+│   │   └── Number of Layers (L)
+│   │
+│   └── Classification Head
+│       ├── MLP Head
+│       │   ├── One Hidden Layer
+│       │   ├── [CLS] Token Processing
+│       │   └── Class Prediction
+│       ├── Linear Layer
+│       ├── Output Classes
+│       └── Training vs Inference Differences
+│
+├── ViT Variants
+│   ├── ViT-Base
+│   │   ├── Patch Size: 16×16
+│   │   ├── Hidden Size: 768
+│   │   ├── Layers: 12
+│   │   └── Heads: 12
+│   ├── ViT-Large
+│   │   ├── Patch Size: 16×16
+│   │   ├── Hidden Size: 1024
+│   │   ├── Layers: 24
+│   │   └── Heads: 16
+│   ├── ViT-Huge*
+│   └── Different Patch Sizes (14×14, 32×32)*
+│
+├── Training Details
+│   ├── Pre-training
+│   │   ├── Large-Scale Datasets
+│   │   │   ├── ImageNet-21K
+│   │   │   ├── JFT-300M
+│   │   │   └── Large Data Requirements
+│   │   ├── Self-Supervised Pre-training*
+│   │   └── Supervised Pre-training
+│   ├── Fine-Tuning
+│   │   ├── Downstream Tasks
+│   │   ├── Smaller Datasets
+│   │   ├── Higher Resolution*
+│   │   └── Task-Specific Adaptation
+│   ├── Data Augmentation
+│   │   ├── RandAugment*
+│   │   ├── Mixup*
+│   │   ├── CutMix*
+│   │   └── Standard Augmentations
+│   └── Regularization
+│       ├── Dropout
+│       ├── Stochastic Depth*
+│       └── Weight Decay
+│
+├── Key Properties
+│   ├── Inductive Bias
+│   │   ├── Less Inductive Bias than CNNs
+│   │   ├── No Built-in 2D Structure
+│   │   ├── Learned Spatial Relationships
+│   │   └── Data-Dependent Learning
+│   ├── Scalability
+│   │   ├── Scales with Data
+│   │   ├── Scales with Model Size
+│   │   └── Better than CNNs at Scale
+│   ├── Interpretability
+│   │   ├── Attention Map Visualization
+│   │   ├── Learned Representations
+│   │   └── Patch Importance
+│   └── Computational Efficiency
+│       ├── Quadratic Complexity (N²)
+│       ├── Memory Requirements
+│       └── Inference Speed
+│
+├── Hybrid Architectures
+│   ├── CNN + Transformer
+│   ├── Patch Embedding via CNN*
+│   ├── Hierarchical Vision Transformers*
+│   └── Swin Transformer*
+│
+└── Applications
+    ├── Image Classification
+    ├── Object Detection*
+    ├── Semantic Segmentation*
+    ├── Instance Segmentation*
+    ├── Image Generation*
+    └── Multi-Modal Learning*
+
+## Language Models
+├── Language Modeling Fundamentals
+│   ├── Definition
+│   │   ├── Probabilistic Model
+│   │   ├── Sequence of Words Probability
+│   │   ├── Next Token Prediction
+│   │   ├── P("word" | "previous context")
+│   │   └── Word Order Prediction
+│   ├── Language Model Concept
+│   │   ├── Neural Network Training
+│   │   ├── Large Corpus Training
+│   │   ├── Probability Computation
+│   │   └── Text Generation Capability
+│   └── Applications
+│       ├── Text Generation
+│       ├── Machine Translation
+│       ├── Text Summarization
+│       ├── Question Answering
+│       └── More...
+│
+├── Word Embeddings & Representations
+│   ├── Text Representation Challenge
+│   │   ├── Unstructured Nature
+│   │   ├── Loss of Meaning (0s and 1s)
+│   │   ├── No Strict Format
+│   │   └── Computer Processing Difficulty
+│   ├── Tokenization
+│   │   ├── Sentence Splitting
+│   │   ├── Words/Subwords (Tokens)
+│   │   └── First Step in Processing
+│   ├── Bag-of-Words (BoW)
+│   │   ├── Vocabulary Creation
+│   │   ├── Unique Words from Sentences
+│   │   ├── Word Frequency Counting
+│   │   ├── Ignores Semantic Nature
+│   │   └── Loses Word Order
+│   ├── Dense Vector Embeddings
+│   │   ├── Word2Vec (2013)
+│   │   │   ├── Semantic Representation Capture
+│   │   │   ├── Meaning in Embeddings
+│   │   │   ├── Neighbor Word Learning
+│   │   │   ├── Skip-gram Model*
+│   │   │   ├── CBOW (Continuous Bag of Words)*
+│   │   │   ├── Training on Wikipedia
+│   │   │   └── Artificial Neural Network Training
+│   │   ├── GloVe (Global Vectors)*
+│   │   ├── FastText*
+│   │   └── Embedding Properties
+│   │       ├── Fixed-Size Vectors
+│   │       ├── Semantic Similarity
+│   │       ├── Arithmetic Operations*
+│   │       └── Dimensionality (e.g., 200, 300)
+│   └── Contextual Embeddings
+│       ├── Context-Dependent Representations
+│       ├── Word Sense Disambiguation
+│       ├── "bank" Example (river vs account)
+│       ├── ELMo (Embeddings from Language Models)*
+│       └── Dynamic Representations
+│
+├── Pre-training in NLP
+│   ├── Word Embedding Pre-training
+│   │   ├── Training on Large Corpus
+│   │   ├── Co-occurrence Statistics
+│   │   ├── Transfer Learning
+│   │   └── General Purpose Embeddings
+│   ├── Contextual Representation Pre-training
+│   │   ├── LSTM Language Model
+│   │   ├── Bidirectional Context
+│   │   ├── Left and Right Context
+│   │   ├── Semi-Supervised Sequence Learning (Google, 2015)
+│   │   └── Limitations
+│   │       ├── Unidirectional Context Problem
+│   │       ├── Sequential Building
+│   │       └── "Words can see themselves" Issue
+│   └── Fine-tuning
+│       ├── Task-Specific Adaptation
+│       ├── Classification Tasks
+│       └── Downstream Applications
+
+## BERT (Bidirectional Encoder Representations from Transformers)
+├── BERT Fundamentals
+│   ├── Introduction
+│   │   ├── Developed by Google AI Language (2018)
+│   │   ├── Machine Learning for NLP
+│   │   ├── Bidirectional Context
+│   │   ├── Encoder-Only Architecture
+│   │   └── Pre-training + Fine-tuning Paradigm
+│   ├── Key Innovation
+│   │   ├── True Bidirectional Training
+│   │   ├── Both Left and Right Context
+│   │   ├── Masked Language Modeling
+│   │   └── Solves Unidirectional Problem
+│   └── Applications
+│       ├── Sentiment Analysis
+│       ├── Question Answering
+│       ├── Named Entity Recognition
+│       ├── Text Classification
+│       ├── Text Prediction
+│       ├── Language Understanding
+│       └── Paraphrase Detection*
+│
+├── BERT Architecture
+│   ├── Model Variants
+│   │   ├── BERT-Base
+│   │   │   ├── 12 Layers
+│   │   │   ├── 768 Hidden Dimensions
+│   │   │   ├── 12 Attention Heads
+│   │   │   ├── 110M Parameters
+│   │   │   ├── Cased/Uncased Versions
+│   │   │   └── Training: 4 days on 64 TPUs
+│   │   └── BERT-Large
+│   │       ├── 24 Layers
+│   │       ├── 1024 Hidden Dimensions
+│   │       ├── 16 Attention Heads
+│   │       ├── 340M Parameters
+│   │       ├── Cased/Uncased Versions
+│   │       └── Larger Capacity
+│   ├── Encoder Stack
+│   │   ├── Transformer Encoder Layers
+│   │   ├── Multi-Head Self-Attention
+│   │   ├── Feed-Forward Networks
+│   │   ├── Layer Normalization
+│   │   ├── Residual Connections
+│   │   └── No Decoder Component
+│   └── Input Representation
+│       ├── Token Embeddings
+│       │   ├── WordPiece Tokenization
+│       │   ├── 30K Vocabulary
+│       │   ├── Subword Units
+│       │   └── [CLS], [SEP], [MASK] Tokens
+│       ├── Segment Embeddings
+│       │   ├── Sentence A Marker
+│       │   ├── Sentence B Marker
+│       │   ├── Distinguishing Sentences
+│       │   └── Binary Segmentation
+│       ├── Positional Embeddings
+│       │   ├── Learned Position Embeddings
+│       │   ├── Absolute Positions
+│       │   └── Maximum Sequence Length (512)
+│       └── Final Input = Token + Segment + Position
+│
+├── Pre-training Tasks
+│   ├── Masked Language Modeling (MLM)
+│   │   ├── Task Description
+│   │   │   ├── Mask Words in Sentence
+│   │   │   ├── Predict Masked Words
+│   │   │   ├── Bidirectional Context Use
+│   │   │   ├── Example: "She went to the [MASK] to play"
+│   │   │   └── Force Both Direction Learning
+│   │   ├── Masking Strategy (15% of Tokens)
+│   │   │   ├── 80% → Replace with [MASK]
+│   │   │   │   └── "went to the store" → "went to the [MASK]"
+│   │   │   ├── 10% → Replace with Random Word
+│   │   │   │   └── "went to the store" → "went to the running"
+│   │   │   └── 10% → Keep Same
+│   │   │       └── "went to the store" → "went to the store"
+│   │   ├── Rationale
+│   │   │   ├── [MASK] Never Seen at Fine-tuning
+│   │   │   ├── Prevent Overfitting to [MASK]
+│   │   │   └── Robustness Improvement
+│   │   └── Loss Computation
+│   │       ├── Cross-Entropy Loss
+│   │       ├── Only Masked Positions
+│   │       └── Predict Original Token
+│   │
+│   └── Next Sentence Prediction (NSP)
+│       ├── Task Description
+│       │   ├── Sentence Pair Relationship
+│       │   ├── Binary Classification
+│       │   ├── IsNext vs NotNext
+│       │   └── Downstream Task Preparation
+│       ├── Input Format
+│       │   ├── [CLS] Sentence A [SEP] Sentence B [SEP]
+│       │   ├── Two Sentences Combined
+│       │   └── Special Token Separation
+│       ├── Training Data Creation
+│       │   ├── 50% Actual Next Sentence (IsNext)
+│       │   ├── 50% Random Sentence (NotNext)
+│       │   └── Balanced Dataset
+│       ├── [CLS] Token Role
+│       │   ├── Aggregate Representation
+│       │   ├── Sentence-Pair Classification
+│       │   ├── Interacts with All Tokens
+│       │   ├── Captures Information
+│       │   └── No Masking Applied
+│       └── Segmentation Embeddings
+│           ├── Sentence A Embedding
+│           ├── Sentence B Embedding
+│           └── Token-Level Markers
+│
+├── Pre-training Details
+│   ├── Training Corpus
+│   │   ├── English Wikipedia (2.5B words)
+│   │   ├── Google Book Corpus (800M words)
+│   │   ├── Total: 3.3B words
+│   │   └── Diverse Text Sources
+│   ├── Training Procedure
+│   │   ├── MLM + NSP Combined
+│   │   ├── Joint Training
+│   │   ├── Multi-Task Learning
+│   │   └── Shared Representations
+│   ├── Computational Resources
+│   │   ├── 64 TPU Chips
+│   │   ├── 4 Days Training (Base)
+│   │   └── Large-Scale Training
+│   └── Optimization
+│       ├── Adam Optimizer
+│       ├── Learning Rate Warmup
+│       ├── Layer-wise Decay*
+│       └── Gradient Clipping*
+│
+├── Fine-tuning BERT
+│   ├── Fine-tuning Process
+│   │   ├── Task-Specific Layers
+│   │   ├── Minimal Architecture Changes
+│   │   ├── End-to-End Training
+│   │   └── All Parameters Updated
+│   ├── Text Classification
+│   │   ├── Input: [CLS] Text [SEP]
+│   │   ├── [CLS] Representation → Linear Layer
+│   │   ├── Softmax for Classes
+│   │   ├── Example: Sentiment Analysis
+│   │   ├── Example: Hardware/Software/Billing
+│   │   └── Cross-Entropy Loss
+│   ├── Question Answering (QA)
+│   │   ├── Input Format
+│   │   │   ├── [CLS] Question [SEP] Context [SEP]
+│   │   │   ├── Sentence A: Question
+│   │   │   ├── Sentence B: Context/Passage
+│   │   │   └── Combined Input
+│   │   ├── Task Formulation
+│   │   │   ├── Span Prediction
+│   │   │   ├── Start Position Prediction
+│   │   │   ├── End Position Prediction
+│   │   │   └── Answer Extraction from Context
+│   │   ├── Output Layers
+│   │   │   ├── Start Token Classifier
+│   │   │   ├── End Token Classifier
+│   │   │   ├── Linear Layers
+│   │   │   └── Softmax over Tokens
+│   │   └── Example
+│   │       ├── Question: "What is the fashion capital of China?"
+│   │       ├── Context: "Shanghai is... fashion capital..."
+│   │       └── Answer: "Shanghai"
+│   ├── Named Entity Recognition (NER)
+│   │   ├── Token-Level Classification
+│   │   ├── Each Token gets a Tag
+│   │   ├── BIO Tagging Scheme*
+│   │   └── Entity Type Prediction
+│   ├── Semantic Similarity
+│   │   ├── Sentence Pair Input
+│   │   ├── [CLS] Token for Classification
+│   │   └── Similarity Score
+│   └── Sequence Labeling*
+│       ├── Part-of-Speech Tagging*
+│       └── Chunking*
+│
+├── BERT Evaluation
+│   ├── Benchmark Datasets
+│   ├── GLUE (General Language Understanding Evaluation)
+│   │   ├── Sentence Pair Tasks
+│   │   ├── Single Sentence Classification
+│   │   ├── Multiple NLU Tasks
+│   │   └── Benchmark Suite
+│   ├── SQuAD (Stanford Question Answering Dataset)
+│   │   ├── Reading Comprehension
+│   │   ├── Span-based QA
+│   │   ├── SQuAD 1.1
+│   │   └── SQuAD 2.0*
+│   ├── SWAG*
+│   └── Performance Metrics
+│       ├── Accuracy
+│       ├── F1 Score
+│       ├── Exact Match (EM)
+│       └── Task-Specific Metrics
+│
+├── Advantages of BERT
+│   ├── Bidirectional Context
+│   ├── Transfer Learning
+│   ├── State-of-the-Art Results
+│   ├── Minimal Task-Specific Architecture
+│   ├── Rich Representations
+│   └── Multi-Task Capabilities
+│
+└── BERT Variants and Extensions
+    ├── RoBERTa (Robustly optimized BERT)
+    │   ├── Longer Training
+    │   ├── Larger Batches
+    │   ├── Removed NSP Task
+    │   ├── Dynamic Masking
+    │   └── More Data
+    ├── ALBERT (A Lite BERT)*
+    │   ├── Parameter Sharing
+    │   ├── Factorized Embeddings
+    │   └── Sentence Order Prediction (SOP)
+    ├── DistilBERT*
+    │   ├── Knowledge Distillation
+    │   ├── 40% Size Reduction
+    │   └── 60% Faster
+    ├── ELECTRA*
+    │   ├── Replaced Token Detection
+    │   └── More Efficient Pre-training
+    ├── DeBERTa*
+    │   ├── Disentangled Attention
+    │   └── Enhanced Mask Decoder
+    ├── SpanBERT*
+    └── SentenceBERT*
+
+## GPT (Generative Pre-trained Transformer) Family
+├── GPT Fundamentals
+│   ├── Introduction
+│   │   ├── Developed by OpenAI
+│   │   ├── Generative Pre-trained Transformer
+│   │   ├── Autoregressive Language Model
+│   │   ├── Decoder-Only Architecture
+│   │   └── Natural Language Understanding & Generation
+│   ├── Key Characteristics
+│   │   ├── Unidirectional (Left-to-Right)
+│   │   ├── Causal Language Modeling
+│   │   ├── Next Token Prediction
+│   │   ├── Pre-training + Fine-tuning
+│   │   └── Large-Scale Models (LLMs)
+│   └── Differences from BERT
+│       ├── Decoder vs Encoder
+│       ├── Unidirectional vs Bidirectional
+│       ├── Generation vs Understanding Focus
+│       ├── Autoregressive vs Masked
+│       └── Prompt Engineering vs Fine-tuning Emphasis
+│
+├── GPT Architecture
+│   ├── Transformer Decoder Stack
+│   │   ├── Stacked Decoder Layers
+│   │   ├── Self-Attention (Masked)
+│   │   ├── Feed-Forward Networks
+│   │   ├── Layer Normalization
+│   │   └── Residual Connections
+│   ├── Masked Self-Attention
+│   │   ├── Causal Masking
+│   │   ├── Future Token Masking
+│   │   ├── Autoregressive Property
+│   │   └── Position i sees only positions ≤ i
+│   ├── Positional Encoding
+│   │   ├── Learned Position Embeddings
+│   │   └── Absolute Positions
+│   └── Output Layer
+│       ├── Linear Projection
+│       ├── Vocabulary Size Output
+│       └── Softmax for Probabilities
+│
+├── Training Paradigm
+│   ├── Pre-training
+│   │   ├── Causal Language Modeling
+│   │   ├── Next Word Prediction
+│   │   ├── Large-Scale Internet Text
+│   │   ├── Unsupervised Learning
+│   │   ├── Grammar Learning
+│   │   ├── Fact Learning
+│   │   └── Reasoning Capability Emergence
+│   ├── Fine-tuning (GPT-1, GPT-2)
+│   │   ├── Task-Specific Adaptation
+│   │   ├── Supervised Learning
+│   │   ├── Smaller Datasets
+│   │   └── Minimal Architecture Changes
+│   └── Few-Shot/Zero-Shot Learning (GPT-3+)
+│       ├── In-Context Learning
+│       ├── Prompt Engineering
+│       ├── No Fine-tuning Required
+│       └── Task Description in Prompt
+│
+├── GPT Model Evolution
+│   ├── GPT-1 (2018)
+│   │   ├── 117M Parameters
+│   │   ├── 12 Layers
+│   │   ├── Proof of Concept
+│   │   ├── Pre-training + Fine-tuning
+│   │   └── BookCorpus Dataset
+│   │
+│   ├── GPT-2 (2019)
+│   │   ├── Parameter Scales
+│   │   │   ├── 117M (Small)
+│   │   │   ├── 345M (Medium)
+│   │   │   ├── 762M (Large)
+│   │   │   └── 1.5B (XL)
+│   │   ├── 48 Layers (XL)
+│   │   ├── WebText Dataset
+│   │   ├── Zero-Shot Task Transfer
+│   │   ├── Coherent Text Generation
+│   │   └── Initial Safety Concerns
+│   │
+│   ├── GPT-3 (2020)
+│   │   ├── 175B Parameters
+│   │   ├── 96 Layers
+│   │   ├── 96 Attention Heads
+│   │   ├── 12,288 Hidden Dimensions
+│   │   ├── Context Length: 2048 tokens
+│   │   ├── Training Data: ~500B tokens
+│   │   ├── Common Crawl Dataset
+│   │   ├── Few-Shot Learning
+│   │   ├── In-Context Learning
+│   │   ├── Prompt Engineering Emergence
+│   │   └── API-Only Access
+│   │
+│   ├── GPT-3.5 (ChatGPT) (2022)
+│   │   ├── Fine-tuned from GPT-3
+│   │   ├── Instruction Following
+│   │   ├── Conversational Format
+│   │   ├── RLHF (Reinforcement Learning from Human Feedback)
+│   │   │   ├── Human Preference Learning
+│   │   │   ├── Reward Model
+│   │   │   ├── PPO (Proximal Policy Optimization)
+│   │   │   └── Alignment with Human Values
+│   │   ├── Supervised Fine-Tuning (SFT)
+│   │   ├── Safety Improvements
+│   │   └── Viral Adoption (100M users in 2 months)
+│   │
+│   ├── GPT-4 (2023)
+│   │   ├── Multimodal Capabilities
+│   │   │   ├── Image + Text Inputs
+│   │   │   ├── Text Outputs
+│   │   │   └── Vision Understanding
+│   │   ├── 1.76 Trillion Parameters (reported)
+│   │   ├── Mixture of Experts (MoE) Architecture*
+│   │   ├── Extended Context Length
+│   │   │   ├── 8K tokens (default)
+│   │   │   ├── 32K tokens (extended)
+│   │   │   └── 128K tokens (GPT-4 Turbo)
+│   │   ├── Improved Reasoning
+│   │   ├── Better Factuality
+│   │   ├── Reduced Hallucinations
+│   │   ├── Exam Performance
+│   │   │   ├── Bar Exam (Top 10%)
+│   │   │   ├── SAT
+│   │   │   └── Various Professional Exams
+│   │   ├── Training Duration: 6 months
+│   │   ├── Supercomputer Co-designed with Azure
+│   │   └── Safety Evaluations
+│   │       ├── Expert Red Teaming
+│   │       ├── Adversarial Testing
+│   │       ├── Risk Assessment
+│   │       └── Harmful Content Mitigation
+│   │
+│   ├── GPT-4o (2024)
+│   │   ├── "o" for "omni"
+│   │   ├── Multimodal (Audio, Vision, Text)
+│   │   ├── Faster Response Time
+│   │   ├── Lower Cost
+│   │   └── Real-time Interaction
+│   │
+│   └── GPT-5 (Mentioned in Lectures)
+│       ├── Unified System
+│       │   ├── Smart & Fast Model
+│       │   ├── Deeper Reasoning Model
+│       │   └── Real-time Router
+│       ├── Router Selection Criteria
+│       │   ├── Conversation Type & Complexity
+│       │   ├── Tool Requirements
+│       │   └── User Intent
+│       ├── Router Improvement
+│       │   ├── User Model-Switching Behavior
+│       │   ├── Response Preference Rates
+│       │   └── Measured Correctness
+│       ├── Model Variants
+│       │   ├── gpt-5-main (High-throughput)
+│       │   ├── gpt-5-main-mini
+│       │   ├── gpt-5-thinking (Reasoning)
+│       │   ├── gpt-5-thinking-mini
+│       │   ├── gpt-5-thinking-nano
+│       │   └── gpt-5-thinking-pro
+│       ├── Key Improvements
+│       │   ├── Reduced Hallucinations
+│       │   ├── Better Instruction Following
+│       │   ├── Minimized Sycophancy
+│       │   └── Enhanced Use Cases (Writing, Coding, Health)
+│       ├── Training Data & Safety
+│       │   ├── Public Internet Data
+│       │   ├── Partnered Third-Party Sources
+│       │   ├── User/Trainer Contributions
+│       │   ├── Rigorous Filtering Pipeline
+│       │   ├── Personal Information Removal
+│       │   ├── Moderation API
+│       │   └── Safety Classifiers
+│       ├── Reasoning Models
+│       │   ├── Reinforcement Learning Training
+│       │   ├── Internal Chain of Thought
+│       │   ├── Refine Reasoning
+│       │   ├── Test Strategies
+│       │   ├── Catch Mistakes
+│       │   └── Jailbreak Resistance
+│       ├── Safe-Completions
+│       │   ├── Focus on Output Safety
+│       │   ├── Maximize Helpfulness within Policy
+│       │   ├── Graded Safe Response Generation
+│       │   └── vs Binary Refusal
+│       ├── Sycophancy Reduction
+│       │   ├── "Yes-man" Behavior Problem
+│       │   ├── Post-training with Sycophancy Scores
+│       │   ├── Reward Signals
+│       │   └── 3x Better than GPT-4o
+│       └── Jailbreak Evaluation
+│           ├── Adversarial Prompts
+│           ├── Bypass Refusals
+│           ├── StrongReject Method
+│           └── Policy Graders
+│
+├── GPT vs BERT Comparison
+│   ├── Architecture
+│   │   ├── GPT: Decoder-Only
+│   │   └── BERT: Encoder-Only
+│   ├── Training Objective
+│   │   ├── GPT: Causal LM (Next Token)
+│   │   └── BERT: MLM + NSP
+│   ├── Attention Masking
+│   │   ├── GPT: Causal/Unidirectional
+│   │   └── BERT: Bidirectional
+│   ├── Primary Use Case
+│   │   ├── GPT: Generation
+│   │   └── BERT: Understanding/Classification
+│   ├── Task Adaptation
+│   │   ├── GPT: Prompt Engineering (GPT-3+)
+│   │   └── BERT: Fine-tuning
+│   └── Context Window
+│       ├── GPT: Larger (up to 128K)
+│       └── BERT: Smaller (512 tokens)
+│
+├── GPT Applications
+│   ├── Text Generation
+│   │   ├── Creative Writing
+│   │   ├── Story Generation
+│   │   ├── Content Creation
+│   │   └── Dialogue Generation
+│   ├── Code Generation
+│   │   ├── Code Completion
+│   │   ├── Bug Fixing
+│   │   ├── Code Explanation
+│   │   └── Programming Assistance
+│   ├── Question Answering
+│   ├── Text Summarization
+│   ├── Translation
+│   ├── Conversation/Chatbots
+│   ├── Email/Document Drafting
+│   ├── Data Analysis*
+│   └── Multi-step Reasoning
+│
+├── GPT Limitations
+│   ├── Hallucinations
+│   │   ├── Factually Incorrect Information
+│   │   ├── Made-up Facts
+│   │   └── Confident Errors
+│   ├── Knowledge Cutoff
+│   │   ├── Training Data Limitation
+│   │   ├── No Real-time Information
+│   │   └── Dated Knowledge
+│   ├── Lack of Experience Learning
+│   ├── Reasoning Errors
+│   │   ├── Simple Logical Mistakes
+│   │   ├── Mathematical Errors
+│   │   └── Inconsistencies
+│   ├── Context Length Limits
+│   ├── Bias and Fairness Issues
+│   │   ├── Training Data Bias
+│   │   └── Stereotypes
+│   ├── Safety Concerns
+│   │   ├── Harmful Content Generation
+│   │   ├── Misuse Potential
+│   │   └── Security Vulnerabilities
+│   └── Computational Cost
+│       ├── Training Costs
+│       ├── Inference Costs
+│       └── Environmental Impact
+│
+├── Prompt Engineering for GPT
+│   ├── Prompting Techniques
+│   │   ├── Zero-Shot Prompting
+│   │   ├── Few-Shot Prompting
+│   │   ├── Chain-of-Thought (CoT) Prompting
+│   │   ├── Self-Consistency*
+│   │   ├── ReAct (Reasoning + Acting)*
+│   │   └── Tree of Thoughts*
+│   ├── Prompt Design Principles
+│   │   ├── Clear Instructions
+│   │   ├── Context Provision
+│   │   ├── Examples (if few-shot)
+│   │   ├── Output Format Specification
+│   │   └── Role Assignment
+│   └── Effective Prompting Guidelines
+│       ├── Be Specific
+│       ├── Provide Context
+│       ├── Use Examples
+│       ├── Request Step-by-Step
+│       └── Specify XML Tags/Format
+│
+├── RLHF (Reinforcement Learning from Human Feedback)
+│   ├── Motivation
+│   │   ├── Alignment Problem
+│   │   ├── Human Preference Learning
+│   │   └── Safety & Helpfulness
+│   ├── Process
+│   │   ├── Supervised Fine-Tuning (SFT)
+│   │   │   ├── Human-Written Demonstrations
+│   │   │   ├── High-Quality Examples
+│   │   │   └── Initial Policy Training
+│   │   ├── Reward Model (RM) Training
+│   │   │   ├── Human Preference Data
+│   │   │   ├── Pairwise Comparisons
+│   │   │   ├── Ranking Model
+│   │   │   └── Predict Human Preferences
+│   │   └── Reinforcement Learning
+│   │       ├── PPO (Proximal Policy Optimization)
+│   │       ├── Policy Optimization
+│   │       ├── Reward Maximization
+│   │       └── KL Divergence Constraint
+│   ├── Components
+│   │   ├── Human Labelers
+│   │   ├── Preference Dataset
+│   │   ├── Reward Model
+│   │   └── Policy Model
+│   └── Benefits
+│       ├── Better Alignment
+│       ├── Reduced Harmful Outputs
+│       ├── Improved Helpfulness
+│       └── Better Instruction Following
+│
+├── ChatGPT Specifics
+│   ├── Two-Step Training Process
+│   │   ├── Pre-training Phase
+│   │   │   ├── Next Word Prediction
+│   │   │   ├── Learn from Billions of Sentences
+│   │   │   ├── Grammar Learning
+│   │   │   ├── Facts Learning
+│   │   │   └── Reasoning Abilities
+│   │   └── Fine-tuning Phase
+│   │       ├── Narrow Down Behavior
+│   │       ├── Human Reviewer Data
+│   │       ├── Carefully Generated Dataset
+│   │       ├── Guidelines for Reviewers
+│   │       ├── Weekly Feedback Meetings
+│   │       └── Iterative Process
+│   ├── Reviewer Guidelines
+│   │   ├── Category Outlines
+│   │   ├── Example Inputs
+│   │   ├── Model Output Rating
+│   │   ├── "Do not complete illegal content"
+│   │   ├── "Avoid positions on controversial topics"
+│   │   └── Generalization to Wide Input Array
+│   ├── Inference Process
+│   │   ├── Same as Training Phase
+│   │   ├── Dropout at Test Time
+│   │   ├── Batch Normalization (Test Batch Stats)
+│   │   ├── Instance Normalization (Batch Size 1)
+│   │   └── Batch Sizes: 1-10
+│   └── Improvements Over Base GPT
+│       ├── Instruction Following
+│       ├── Conversational Ability
+│       ├── Context Retention
+│       ├── Safety Features
+│       └── User-Friendly Responses
+│
+└── GPT Training Details
+    ├── Optimization
+    │   ├── Adam Optimizer
+    │   ├── Learning Rate: 0.0002
+    │   ├── Momentum: β₁=0.5, β₂=0.999
+    │   └── Gradient Clipping
+    ├── Data Processing
+    │   ├── Large-Scale Web Data
+    │   ├── Data Filtering
+    │   ├── Quality Control
+    │   └── Deduplication
+    ├── Computational Requirements
+    │   ├── Massive GPU Clusters
+    │   ├── ~25,000 A100 GPUs (GPT-4)
+    │   ├── 90-100 Days Training
+    │   └── Supercomputer Infrastructure
+    └── Evaluation
+        ├── Perplexity
+        ├── Task-Specific Benchmarks
+        ├── Human Evaluation
+        └── Safety Evaluations
+
+## Large Language Models (LLMs)
+├── LLM Fundamentals
+│   ├── Definition
+│   │   ├── Advanced Language Models
+│   │   ├── Huge Parameter Count (Billions/Trillions)
+│   │   ├── Extensive Text Data Processing
+│   │   ├── Complex Linguistic Patterns
+│   │   └── Wide Range of NLP Tasks
+│   ├── Characteristics
+│   │   ├── Large Scale
+│   │   ├── Pre-trained on Vast Datasets
+│   │   ├── Books, Websites, Articles
+│   │   ├── Generalize Well Across Tasks
+│   │   └── High Accuracy
+│   └── "Large" Meaning
+│       ├── Massive Scale
+│       ├── Learn Language Details
+│       └── Wide Variety of Applications
+│
+├── Training Paradigm
+│   ├── Traditional ML vs LLM Training
+│   │   ├── Traditional: One-Step (Task-Specific)
+│   │   └── LLM: Multi-Step Process
+│   ├── Step 1: Pre-training (Language Modeling)
+│   │   ├── Unsupervised Learning
+│   │   ├── Vast Corpus of Text
+│   │   ├── Grammar Learning
+│   │   ├── Context Learning
+│   │   ├── Language Pattern Learning
+│   │   ├── High Computational Cost
+│   │   ├── Long Training Time
+│   │   ├── Next Word Prediction Focus
+│   │   ├── Foundation/Base Model Result
+│   │   └── Does Not Follow Instructions
+│   └── Step 2: Fine-tuning/Post-training
+│       ├── Supervised Learning
+│       ├── Narrower Task Focus
+│       ├── Specific Task Adaptation
+│       ├── Desired Behavior Exhibition
+│       ├── Classification Tasks
+│       ├── Instruction Following
+│       ├── Less Data Required
+│       └── Less Computing Resources
+│
+├── Training Scale Examples
+│   ├── GPT-4
+│   │   ├── ~13 Trillion Tokens
+│   │   └── Text + Code Data
+│   ├── GPT-5 (Claimed)
+│   │   ├── ~70 Trillion Tokens
+│   │   └── 281 TB Data
+│   ├── DeepSeek-V3
+│   │   ├── 14.8 Trillion Tokens
+│   │   └── Multilingual Corpus
+│   ├── Llama 3
+│   │   ├── 8B and 70B Parameters
+│   │   └── Various Scales
+│   └── Claude 2
+│       ├── 1.2 Trillion Tokens
+│       └── Safety & Alignment Focus
+│
+├── LLM Applications
+│   ├── Text Generation
+│   ├── Machine Translation
+│   ├── Text Summarization
+│   ├── Question Answering
+│   ├── Sentiment Analysis
+│   ├── Named Entity Recognition
+│   ├── Information Extraction
+│   ├── Dialogue Systems
+│   ├── Code Generation & Analysis
+│   └── Multi-modal Tasks
+│
+├── Resource Requirements
+│   ├── Training Costs
+│   │   ├── Expensive Process
+│   │   ├── GPT-4: 25,000 A100 GPUs × 90-100 days
+│   │   ├── Llama 3: 24,000 GPUs
+│   │   ├── Llama 2: A100-80GB GPUs
+│   │   └── Cost Example: >$5M for Llama 2
+│   ├── GPU Requirements
+│   │   ├── Thousands of GPUs
+│   │   ├── Months of Training
+│   │   └── Specialized Hardware
+│   └── Economic Barriers
+│       ├── High Entry Cost
+│       ├── Limited Accessibility
+│       └── Large Organization Advantage
+│
+├── Public vs Private Models
+│   ├── Closed-Source/Private Models
+│   │   ├── Weights Not Public
+│   │   ├── Architecture Not Shared
+│   │   ├── Examples: GPT-4, Claude
+│   │   ├── API Access Only
+│   │   ├── Subscription/Pay-per-Use
+│   │   └── No Local Running
+│   └── Open-Source Models
+│       ├── Shared Weights & Architecture
+│       ├── Public Code
+│       ├── Examples: DeepSeek, Mistral, Llama, Phi
+│       ├── Local Running Possible
+│       ├── Full Model Control
+│       ├── Fine-tuning Possible
+│       ├── Sensitive Data Processing
+│       └── No API Dependency
+│
+├── Open-Source LLM Frameworks
+│   ├── llama.cpp*
+│   ├── LangChain
+│   ├── Hugging Face Transformers
+│   ├── Ollama*
+│   └── vLLM*
+│
+├── Recent History of Language AI
+│   ├── 2012 Onwards: Acceleration
+│   ├── GPT-2 (2019): Human-like Writing
+│   ├── ChatGPT (2022): Revolution
+│   │   ├── 1M Users in 5 Days
+│   │   └── 100M Users in 2 Months
+│   ├── Unprecedented Success
+│   ├── Popularized LLM Research
+│   ├── Proprietary & Public Models
+│   └── Catching Up to ChatGPT
+│
+└── Language AI Subfield
+    ├── AI for Language Understanding
+    ├── Language Processing
+    ├── Language Generation
+    ├── Interchangeable with NLP
+    ├── Machine Learning Methods Success
+    └── Language Processing Problems
+
+## DeepSeek Models
+├── DeepSeek Overview
+│   ├── Open-Source Model Series
+│   ├── Chinese AI Company
+│   ├── State-of-the-Art Performance
+│   ├── Cost-Effective Training
+│   └── Multiple Model Variants
+│
+├── DeepSeek-V3
+│   ├── Architecture
+│   │   ├── Mixture-of-Experts (MoE) Language Model
+│   │   ├── Total Parameters: 671B
+│   │   ├── Activated Parameters per Token: 37B
+│   │   ├── Efficient Inference
+│   │   └── Cost-Effective Training
+│   ├── Key Architectural Components
+│   │   ├── Multi-head Latent Attention (MLA)
+│   │   │   ├── Efficient Inference
+│   │   │   ├── Reduced KV Cache
+│   │   │   ├── Low-Rank Compression
+│   │   │   ├── Query/Key/Value Compression
+│   │   │   └── RoPE (Rotary Positional Embedding)
+│   │   ├── DeepSeekMoE
+│   │   │   ├── Economical Training
+│   │   │   ├── Finer-Grained Experts
+│   │   │   ├── Shared Experts (Nₛ)
+│   │   │   ├── Routed Experts (Nᵣ)
+│   │   │   ├── Top-K Routing (Kᵣ activated)
+│   │   │   ├── Expert Parallelism
+│   │   │   ├── Node-Limited Routing
+│   │   │   └── No Token Dropping
+│   │   ├── Auxiliary-Loss-Free Load Balancing
+│   │   │   ├── Bias Term for Each Expert (bᵢ)
+│   │   │   ├── Dynamic Bias Adjustment
+│   │   │   ├── Bias Update Speed (γ)
+│   │   │   ├── Overload/Underload Detection
+│   │   │   ├── Better Performance than Aux-Loss
+│   │   │   ├── Minimizes Performance Degradation
+│   │   │   ├── Sequence-Wise Balance Loss (complementary)
+│   │   │   └── Batch-Wise vs Sequence-Wise Balancing
+│   │   └── Multi-Token Prediction (MTP)
+│   │       ├── Prediction Depth D (D=1 for DeepSeek-V3)
+│   │       ├── Sequential MTP Modules
+│   │       ├── Complete Causal Chain
+│   │       ├── Shared Embedding Layer
+│   │       ├── Shared Output Head
+│   │       ├── Transformer Block per Depth
+│   │       ├── Linear Projection (Mₖ)
+│   │       ├── MTP Loss (L_MTP)
+│   │       ├── Weighting Factor (λ)
+│   │       ├── Training Objective Enhancement
+│   │       ├── Speculative Decoding Capability
+│   │       └── Discard at Inference (Optional)
+│   │
+│   ├── Model Configuration
+│   │   ├── 61 Transformer Layers
+│   │   ├── Hidden Dimension: 7168
+│   │   ├── Attention Heads: 128
+│   │   ├── Per-Head Dimension: 128
+│   │   ├── KV Compression Dimension (dᵨ): 512
+│   │   ├── Query Compression Dimension (d'ᵨ): 1536
+│   │   ├── Decoupled Key/Query Dimension (d_h^R): 64
+│   │   ├── MoE Layers (excluding first 3 layers)
+│   │   ├── 1 Shared Expert
+│   │   ├── 256 Routed Experts
+│   │   ├── 8 Experts Activated per Token
+│   │   ├── Expert Intermediate Dimension: 2048
+│   │   ├── Maximum 4 Nodes per Token
+│   │   └── Random Initialization (std=0.006)
+│   │
+│   ├── Training Infrastructure
+│   │   ├── HAI-LLM Framework
+│   │   ├── 2048 NVIDIA H800 GPUs
+│   │   ├── NVLink (Intra-Node)
+│   │   ├── InfiniBand (Inter-Node)
+│   │   ├── 16-way Pipeline Parallelism (PP)
+│   │   ├── 64-way Expert Parallelism (EP)
+│   │   ├── ZeRO-1 Data Parallelism (DP)
+│   │   ├── DualPipe Algorithm
+│   │   │   ├── Fewer Pipeline Bubbles
+│   │   │   ├── Computation-Communication Overlap
+│   │   │   ├── Forward & Backward Overlap
+│   │   │   ├── Bidirectional Pipeline Scheduling
+│   │   │   ├── Near-Zero All-to-All Overhead
+│   │   │   └── Efficient Cross-Node MoE
+│   │   ├── Cross-Node All-to-All Communication
+│   │   │   ├── Custom Kernels
+│   │   │   ├── IB and NVLink Bandwidth Utilization
+│   │   │   ├── Warp Specialization
+│   │   │   ├── 20 SMs for Communication
+│   │   │   ├── 10 Communication Channels
+│   │   │   ├── IB Sending/Receiving
+│   │   │   ├── NVLink Forwarding
+│   │   │   └── PTX Instructions
+│   │   ├── Memory Optimization
+│   │   │   ├── RMSNorm Recomputation
+│   │   │   ├── MLA Up-Projection Recomputation
+│   │   │   ├── EMA in CPU Memory
+│   │   │   ├── Shared Embedding & Output Head (MTP)
+│   │   │   └── No Tensor Parallelism Required
+│   │   └── FP8 Mixed Precision Training
+│   │       ├── First Validation on Extreme Scale
+│   │       ├── FP8 Computation & Storage
+│   │       ├── Accelerated Training
+│   │       ├── Reduced GPU Memory
+│   │       ├── Fine-Grained Quantization
+│   │       │   ├── Tile-wise Quantization*
+│   │       │   └── Activation-Aware Scaling*
+│   │       └── Training Stability*
+│   │
+│   ├── Transformer Architecture Components
+│   │   ├── RMSNorm (Root Mean Square Normalization)
+│   │   │   ├── Alternative to Layer Normalization
+│   │   │   ├── Variance Normalization
+│   │   │   └── Computation Efficiency*
+│   │   ├── Standard Transformer Block (×L)
+│   │   │   ├── Multi-head Latent Attention (MLA)
+│   │   │   ├── Feed Forward Layer (Replaced by MoE)
+│   │   │   ├── Residual Connections
+│   │   │   └── Two Variations*
+│   │   │       ├── Dense Feed Forward*
+│   │   │       └── MoE Feed Forward
+│   │   └── Layer Normalization*
+│   │
+│   ├── DeepSeekMoE Details
+│   │   ├── Input Hidden Vector
+│   │   │   ├── Representation from Previous Layer
+│   │   │   └── After Attention Processing
+│   │   ├── Router
+│   │   │   ├── Learned Module for Expert Selection
+│   │   │   ├── Score Computation for Each Expert
+│   │   │   ├── Softmax Probability Distribution
+│   │   │   ├── Top-Kₜ Expert Selection (Usually 2 or 4)
+│   │   │   ├── Linear Projection + Softmax
+│   │   │   ├── Small Learned Network
+│   │   │   └── Routing Decision per Token
+│   │   ├── Experts
+│   │   │   ├── Shared Expert (Nₛ)
+│   │   │   │   ├── Used by All Tokens
+│   │   │   │   └── Common Knowledge Processing*
+│   │   │   ├── Routed Experts (1, 2, ..., Nᵣ)
+│   │   │   │   ├── Chosen Per-Token
+│   │   │   │   ├── Specialized Processing
+│   │   │   │   └── Token-Specific Routing
+│   │   │   ├── MLP Block Structure
+│   │   │   │   ├── Multi-Layer Perceptron per Expert
+│   │   │   │   ├── Same Structure Across Experts
+│   │   │   │   └── Independent Weights per Expert
+│   │   │   └── Computation Savings*
+│   │   │       ├── Only Active Experts Process Tokens
+│   │   │       └── Reduced Computational Cost
+│   │   └── Output hₜ'
+│   │       ├── Merged Results from Selected Experts
+│   │       └── Output Vector for Next Transformer Layer
+│   │
+│   ├── Load Balancing Strategy
+│   │   ├── Routing Collapse Problem
+│   │   │   ├── Model Favoring Certain Experts
+│   │   │   ├── Overused Experts
+│   │   │   ├── Undertrained Experts
+│   │   │   ├── Worse Generalization
+│   │   │   └── Unbalanced Expert Load
+│   │   ├── Traditional Approach
+│   │   │   ├── Auxiliary Loss (GShard, Switch Transformers)*
+│   │   │   ├── Force Token Distribution Across Experts
+│   │   │   └── Performance Harm in Large-Scale Settings*
+│   │   └── Auxiliary-Loss-Free Approach
+│   │       ├── Bias Term for Each Expert (bᵢ)
+│   │       ├── Dynamic Bias Adjustment
+│   │       ├── Bias Update Speed (γ)
+│   │       ├── Load Balancing Without Performance Loss
+│   │       └── Sequence-Wise vs Batch-Wise Balancing*
+│   │
+│   ├── Training Data & Process
+│   │   ├── Pre-training
+│   │   │   ├── 14.8 Trillion Tokens
+│   │   │   ├── Diverse and High-Quality Tokens
+│   │   │   ├── Large-Scale Corpus
+│   │   │   └── Unsupervised Learning
+│   │   ├── Supervised Fine-Tuning (SFT)
+│   │   │   ├── Instruction Following
+│   │   │   ├── Human-Written Demonstrations
+│   │   │   └── High-Quality Examples
+│   │   └── Reinforcement Learning Stages
+│   │       ├── RLAIF (Reinforcement Learning from AI Feedback)
+│   │       ├── Reward Model Training*
+│   │       └── Policy Optimization*
+│   │
+│   ├── Context Extension
+│   │   ├── Two-Stage Extension
+│   │   │   ├── Stage 1: 32K Context Length
+│   │   │   └── Stage 2: 128K Context Length
+│   │   ├── Long-Context Capability
+│   │   └── Context Length: 128K tokens
+│   │
+│   ├── Model Configurations
+│   │   ├── DeepSeek-V3 MoE-16B
+│   │   │   ├── 2-of-8 Experts
+│   │   │   ├── Total 16B Parameters
+│   │   │   └── Smaller Configuration
+│   │   ├── DeepSeek-V3 MoE-32B
+│   │   │   ├── 2-of-16 Experts
+│   │   │   ├── Total 32B Parameters
+│   │   │   └── Medium Configuration
+│   │   ├── DeepSeek-V3 MoE-236B
+│   │   │   ├── 4-of-64 Experts
+│   │   │   ├── Total 236B Parameters
+│   │   │   └── Large Configuration
+│   │   └── Unified Backbone Training
+│   │       ├── Same Architecture
+│   │       └── Different Expert Configurations
+│   │
+│   ├── Training Details
+│   │   ├── Pre-training Configuration
+│   │   │   ├── 6 Trillion Tokens (MoE Variants)
+│   │   │   ├── 8 Months Training Duration*
+│   │   │   └── 64 A100 GPUs*
+│   │   ├── Training Stability
+│   │   │   ├── No Irrecoverable Loss Spikes
+│   │   │   ├── No Rollbacks
+│   │   │   ├── Remarkably Stable Training
+│   │   │   └── Scalable Training Process*
+│   │   ├── Training Efficiency
+│   │   │   ├── 2.788M H800 GPU Hours Total
+│   │   │   ├── ~$5.6M Cost at $2/hour*
+│   │   │   ├── Includes Pre-training, Context Extension, Post-training
+│   │   │   └── Economical Training Cost
+│   │   └── Training Framework
+│   │       ├── HAI-LLM Framework
+│   │       └── Custom Training Infrastructure*
+│   │
+│   ├── Post-Training: Knowledge Distillation
+│   │   ├── Distillation Pipeline Design
+│   │   │   ├── Transfer Reasoning Abilities
+│   │   │   ├── From DeepSeek-R1 to DeepSeek-V3
+│   │   │   └── Reinforcement-Trained Reasoning Model Source*
+│   │   ├── Incorporated Patterns
+│   │   │   ├── Verification Patterns from R1*
+│   │   │   ├── Reflection Patterns from R1*
+│   │   │   └── Enhanced Reasoning Depth and Correctness
+│   │   └── Output Control
+│   │       ├── Style Control
+│   │       ├── Length Control
+│   │       ├── Readable Output
+│   │       ├── User-Friendly Output
+│   │       └── Precise Output
+│   │
+│   ├── Performance Benchmarks
+│   │   ├── Reasoning, Math, Code
+│   │   │   ├── AQUA-RAT*
+│   │   │   ├── MATH
+│   │   │   ├── GSM8K
+│   │   │   ├── HumanEval
+│   │   │   ├── MBPP
+│   │   │   ├── Codeforces*
+│   │   │   └── Best Among Open-Source Models; Near GPT-4*
+│   │   ├── Knowledge & Multilingual
+│   │   │   ├── MMLU
+│   │   │   ├── DROP*
+│   │   │   ├── BoolQ*
+│   │   │   ├── C-Eval*
+│   │   │   ├── CMMLU*
+│   │   │   └── Slightly Below GPT-4; Better than Yi-1.5, Qwen1.5*
+│   │   ├── Long-Context (up to 128k)
+│   │   │   ├── Needle-in-a-Haystack*
+│   │   │   ├── Passkey Retrieval*
+│   │   │   ├── Reordering*
+│   │   │   ├── Text Sorting*
+│   │   │   ├── DocQA*
+│   │   │   └── Near-Perfect Accuracy; Outperforms Claude 2.1*
+│   │   └── User Preference & Alignment
+│   │       ├── Arena-Hard (GPT-4 judge)*
+│   │       ├── AlpacaEval 2.0*
+│   │       ├── Reward-Bench*
+│   │       └── Strong Preference Scores; Close to Claude 3, Above GPT-3.5*
+│   │
+│   ├── Key Advantages
+│   │   ├── Efficient Inference
+│   │   │   ├── Reduced KV Cache
+│   │   │   ├── Low-Rank Compression
+│   │   │   └── Only 37B Parameters Activated per Token
+│   │   ├── Cost-Effective Training
+│   │   │   ├── Economical Training Cost
+│   │   │   └── Efficient Resource Utilization
+│   │   ├── Strong Performance
+│   │   │   ├── State-of-the-Art Results
+│   │   │   ├── Comparable to Closed-Source Models*
+│   │   │   └── Outperforms Other Open-Source Models
+│   │   └── Scalability
+│   │       ├── Scales with Data
+│   │       ├── Scales with Model Size
+│   │       └── Stable Training at Scale
+│   │
+│   ├── Main Contributions
+│   │   ├── New Architecture Strategies
+│   │   │   ├── Aux-Loss-Free Load Balancing
+│   │   │   └── Multi-Token Prediction (MTP) Objective
+│   │   ├── FP8 Mixed Precision Training
+│   │   │   ├── Validated at Extreme Scale
+│   │   │   └── First Large-Scale Validation*
+│   │   ├── Efficient Cross-Node MoE Training
+│   │   │   ├── Low Communication Cost
+│   │   │   └── Custom Communication Kernels
+│   │   ├── Reasoning Capability Distillation
+│   │   │   ├── From DeepSeek-R1
+│   │   │   └── Enhanced Reasoning Performance
+│   │   └── State-of-the-Art Results
+│   │       ├── Knowledge Benchmarks
+│   │       ├── Coding Benchmarks
+│   │       ├── Math Benchmarks
+│   │       └── Reasoning Benchmarks
+│   │
+│   └── Open-Source Availability
+│       ├── Model Checkpoints
+│       │   └── https://github.com/deepseek-ai/DeepSeek-V3*
+│       ├── Public Weights
+│       ├── Public Architecture
+│       └── Community Access*
+│
+├── DeepSeek-V2*
+│   ├── Multi-head Latent Attention (MLA) Introduction*
+│   ├── DeepSeekMoE Introduction*
+│   └── Architecture Validation*
+│
+└── DeepSeek-R1*
+    ├── Reinforcement-Trained Reasoning Model*
+    ├── Reasoning Capabilities*
+    ├── Verification Patterns*
+    ├── Reflection Patterns*
+    └── Source for Knowledge Distillation*
